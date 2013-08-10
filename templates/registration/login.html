@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+    <div>
+    <h1>Login</h1>
+
+    {% if user.is_authenticated %}
+    <p>You're logged in as {{ user }}, <a href="{% url 'auth_logout' %}">Logout</a></p>
+    {% else %}
+
+    {% if form.non_field_errors %}
+    {{ form.non_field_errors }}
+    {% endif %}
+
+    <form method="post" action="{% url 'auth_login' %}">
+    {% csrf_token %}
+    <dl>
+    {% for field in form %}
+        <dd>{{ field }}
+        {% if field.placeholder %}<div>{{ field.placeholder }}</div>{% endif %}
+        {% if field.errors %}<div>{{ field.errors }}</div>{% endif %}
+        </dd>
+    {% endfor %}
+    </dl>
+    <input type="submit" value="Sign In">
+    </form>
+
+    <script type="text/javascript">
+    document.getElementById('id_username').focus()
+    </script>
+    <ul>
+        <li><a href="{% url 'auth_password_reset' %}">Forgot password</a></li>
+        <li><a href="{% url 'registration_register' %}">Registration</a></li>
+    </ul>
+        </div>
+{% endif %}
+{% endblock %}
