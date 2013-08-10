@@ -12,6 +12,32 @@ html, body {
 			text-align:center;
 			}
 		#body{
+            display: table;
 			margin: 0 auto;
 			text-align: center;
 			}
+        #login_form{
+            display: table-cell;
+            width: 200px;
+            height: 200px;
+            text-align: left;
+        }
+        #title
+        {
+            text-align: left;
+            font-size: 24px;
+            font-family: Times;
+            font-weight: bold;
+            font-style: italic;
+        }
+        #url_block{
+            float: left;
+            text-align: left;
+            font-size: 12px;
+            font-family: Times;
+            padding-right: 3px;
+        }
+        #submit_login{
+            float: left;
+            padding-left: 10px;
+        }
