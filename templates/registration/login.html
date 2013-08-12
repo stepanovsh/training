@@ -21,7 +21,7 @@
         {{ form.password|attr:"placeholder:password" }}
         {% if form.password.placeholder %}<div>{{ form.password.placeholder }}</div>{% endif %}
         {% if form.password.errors %}<div>{{ form.password.errors }}</div>{% endif %}
-        
+
             <div id="url_block">
                 <div><a href="{% url 'auth_password_reset' %}">Forgot password?</a></div>
                 <div><a href="{% url 'registration_register' %}">Registration</a></div>
