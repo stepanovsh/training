@@ -216,6 +216,9 @@ SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'socialauth_associate_complete'
 SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 SOCIAL_AUTH_FORCE_POST_DISCONNECT = True
 SOCIAL_AUTH_USERNAME_IS_FULL_EMAIL = True
+
+SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook','twitter')
+SOCIAL_AUTH_DEFAULT_USERNAME = 'new_social_auth_user'
 #SOCIAL_AUTH_USER_MODEL = 'training.models'
 
 #AUTH_USER_MODEL = 'training.models'
