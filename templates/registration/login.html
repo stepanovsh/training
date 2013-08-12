@@ -1,6 +1,7 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
-    <div id="login_form">
+    <div id="login_form" xmlns="http://www.w3.org/1999/html">
     <div id="title">Login</div>
 
     {% if user.is_authenticated %}
@@ -12,26 +13,37 @@
     {% endif %}
 
     <form method="post" action="{% url 'auth_login' %}">
-    {% csrf_token %}
+        {% csrf_token %}
 
-    {% for field in form %}
-        {{ field }}
-        {% if field.placeholder %}<div>{{ field.placeholder }}</div>{% endif %}
-        {% if field.errors %}<div>{{ field.errors }}</div>{% endif %}
-        </br>
-    {% endfor %}
-    <div id="url_block">
-    <div><a href="{% url 'auth_password_reset' %}">Forgot password?</a></div>
-    <div><a href="{% url 'registration_register' %}">Registration</a></div>
-    </div>
-    <div id="submit_login">
-    <input type="submit" value="Sign In">
-    </div>
+        {% for field in form %}
+            {{ field }}
+            {% if field.placeholder %}<div>{{ field.placeholder }}</div>{% endif %}
+            {% if field.errors %}<div>{{ field.errors }}</div>{% endif %}
+            </br>
+        {% endfor %}
+            <div id="url_block">
+                <div><a href="{% url 'auth_password_reset' %}">Forgot password?</a></div>
+                <div><a href="{% url 'registration_register' %}">Registration</a></div>
+            </div>
+            <div id="submit_login">
+                <input type="submit" value="Sign In">
+            </div>
+
+
     </form>
 
     <script type="text/javascript">
     document.getElementById('id_username').focus()
     </script>
+        </br>
+        </br>
+        <h3>Other</h3>
+    <div id="other_auth">
+            <a href="{% url "socialauth_begin" "facebook" %}" class="social_auth"><img src="{% static '/static/img/facebook.png' %}"></a>
+            <a href="{% url "socialauth_begin" "twitter" %}" class="social_auth"><img src="{% static '/static/img/twitter.png' %}"></a>
         </div>
+
+        </div>
+
 {% endif %}
 {% endblock %}

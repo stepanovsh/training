@@ -3,6 +3,7 @@ from django.views.generic import RedirectView
 from django.core.urlresolvers import reverse_lazy
 from registration.forms import RegistrationFormUniqueEmail
 from registration.views import RegistrationView
+from .facebook import facebook_view
 
 
 # Uncomment the next two lines to enable the admin:
@@ -20,7 +21,8 @@ urlpatterns = patterns('',
     #    name='registration_register'),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^accounts/', include('registration.auth_urls')),
-
+    url(r'', include('social_auth.urls')),
+    url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page' : '/'}, name='logout'),
     url(r'^accounts/profile/', RedirectView.as_view(url = reverse_lazy('auth_login')), {'url': ''}),
 
 )

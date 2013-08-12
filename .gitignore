@@ -1,6 +1,8 @@
 *.pyc
 
 /training/settings/local.py
+/training/settings/facebook.py
+/training/settings/twitter.py
 
 
 .idea

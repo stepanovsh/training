@@ -40,4 +40,9 @@ html, body {
         #submit_login{
             float: left;
             padding-left: 10px;
+            clear: right;
+        }
+        #other_auth{
+            display: table-cell;
+            clear: left;
         }
