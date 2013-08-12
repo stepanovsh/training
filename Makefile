@@ -8,6 +8,10 @@ db:
 run:
 	python manage.py runserver --settings=training.settings.local
 
+collectstatic:
+        python manage.py collectstatic --settings=training.settings.local
+
+
 default:
 	@make requirements
 	@make db

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load widget_tweaks %}
 {% block content %}
     <div id="login_form" xmlns="http://www.w3.org/1999/html">
     <div id="title">Login</div>
@@ -15,13 +15,13 @@
 
     <form method="post" action="{% url 'auth_login' %}">
         {% csrf_token %}
-
-        {% for field in form %}
-            {{ field }}
-            {% if field.placeholder %}<div>{{ field.placeholder }}</div>{% endif %}
-            {% if field.errors %}<div>{{ field.errors }}</div>{% endif %}
-            </br>
-        {% endfor %}
+        {{ form.username|attr:"placeholder:login" }}
+        {% if form.username.placeholder %}<div>{{ form.username.placeholder }}</div>{% endif %}
+        {% if form.username.errors %}<div>{{ form.username.errors }}</div>{% endif %}
+        {{ form.password|attr:"placeholder:password" }}
+        {% if form.password.placeholder %}<div>{{ form.password.placeholder }}</div>{% endif %}
+        {% if form.password.errors %}<div>{{ form.password.errors }}</div>{% endif %}
+        
             <div id="url_block">
                 <div><a href="{% url 'auth_password_reset' %}">Forgot password?</a></div>
                 <div><a href="{% url 'registration_register' %}">Registration</a></div>
