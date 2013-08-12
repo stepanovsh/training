@@ -162,6 +162,7 @@ INSTALLED_APPS = (
     'registration',
     'social_auth',
     'training',
+    'bootstrapped',
 )
 
 # A sample logging configuration. The only tangible logging
